@@ -63,4 +63,12 @@ public class StudentController {
 	
 	
 	//method to display save student data
+	@GetMapping("/viewStudents")
+	public String getStudentData(Model model) {
+		
+		List<StudentEntity> all = repo.findAll();
+		
+		model.addAttribute("students",all);
+		return "data";
+	}
 }
